@@ -13,3 +13,7 @@
 [13]	W. H. Kersting, Distribution system modeling and analysis, Third Edition. CRC Press, 2012.
 [14]	F. M. Gatta, F. Iliceto, S. Lauria, and P. Masato, “BALANCING METHODS OF THE ‘3-PHASE,’” 2005. doi: 10.1109/PTC.2005.4524477.
 [15]	ANEEL, “Procedimentos de Distribuição de Energia Elétrica no Sistema Elétrico Nacional - Módulo 8 - Qualidade da Energia Elétrica,” 2018. Accessed: Jun. 03, 2022. [Online]. Available: https://www2.aneel.gov.br/cedoc/aren2021956_2_7.pdf
+
+W. H. Kersting, “Distribution system modeling and
+analysis”, CRC press-Electric power engineering series,
+USA 2002 .

@@ -1,6 +1,8 @@
 %% Dados do Alimentador
-Ze=13.8^2/120*exp(i*atan(7));%% SCC=120 MVA
-Zbase=13.8^2/0.120;
+
+Ze=13.8^2/120*exp(i*atan(7));
+% SCC=300 kVA
+Zbase=13.8^2/0.3;
 Ztri=2*(0.0048119 +i*0.018511)*Zbase;
 
 %% Dados T2F

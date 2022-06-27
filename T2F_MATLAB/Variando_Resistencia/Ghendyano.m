@@ -104,7 +104,7 @@ ghendyano(1, :) = string({'n' 'Raf' 'IA_T2F' 'IB_T2F' 'IC_T2F' 'IA_TRIF' 'IB_TRI
 
 c = 1;
 % Parametros_testes = [0.001 .1 .2 .3 .4 .5 .6 .7 .8 .9 .999];
-Parametros_testes = [10:10:300];
+Parametros_testes = [10:10:1000];
 
 for n = Parametros_testes
     RaF = n;
@@ -120,5 +120,5 @@ for n = Parametros_testes
     c = c + 1;
 end
 
-writematrix(ghendyano, 'Ghendyano3.csv');
-fprintf('TERMINADO\n');
+writematrix(ghendyano, 'Ghendyano4.csv');
+fprintf('TERMINADO!\n');

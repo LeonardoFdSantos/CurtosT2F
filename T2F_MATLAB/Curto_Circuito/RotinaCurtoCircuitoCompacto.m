@@ -103,10 +103,10 @@ valores_resultados_meio_linha_sem_compensacao(1, :) = string({'n' 'tipoCurto' 'I
 valores_resultados_fim_linha_com_compensacao(1, :) = string({'tipoCurto' 'IA_Sim' 'IB_Sim' 'IC_Sim' 'IA_Calc' 'IB_Calc' 'IC_Calc'});
 valores_resultados_meio_linha_com_compensacao(1, :) = string({'n' 'tipoCurto' 'IA_Sim' 'IB_Sim' 'IC_Sim' 'IA_Calc' 'IB_Calc' 'IC_Calc'});
 
-valores_resultados_simulacao_meio_linha_sem_comp(1, :) = string({'n' 'tipoCurto' 'Raf' 'Rbf' 'Rcf' 'RaTrif' 'RbTrif' 'RcTrif' 'VA_T2F' 'VB_T2F' 'VC_T2F' 'VA_TRIF' 'VB_TRIF' 'VC_TRIF' 'IA_T2F' 'IB_T2F' 'IC_T2F' 'IA_TRIF' 'IB_TRIF' 'IC_TRIF'});
-valores_resultados_simulacao_fim_linha_sem_comp(1, :) = string({'tipoCurto' 'Raf' 'Rbf' 'Rcf' 'RaTrif' 'RbTrif' 'RcTrif' 'VA_T2F' 'VB_T2F' 'VC_T2F' 'VA_TRIF' 'VB_TRIF' 'VC_TRIF' 'IA_T2F' 'IB_T2F' 'IC_T2F' 'IA_TRIF' 'IB_TRIF' 'IC_TRIF'});
-valores_resultados_simulacao_meio_linha_com_comp(1, :) = string({'n' 'tipoCurto' 'Raf' 'Rbf' 'Rcf' 'RaTrif' 'RbTrif' 'RcTrif' 'VA_T2F' 'VB_T2F' 'VC_T2F' 'VA_TRIF' 'VB_TRIF' 'VC_TRIF' 'IA_T2F' 'IB_T2F' 'IC_T2F' 'IA_TRIF' 'IB_TRIF' 'IC_TRIF'});
-valores_resultados_simulacao_fim_linha_com_comp(1, :) = string({'tipoCurto' 'Raf' 'Rbf' 'Rcf' 'RaTrif' 'RbTrif' 'RcTrif' 'VA_T2F' 'VB_T2F' 'VC_T2F' 'VA_TRIF' 'VB_TRIF' 'VC_TRIF' 'IA_T2F' 'IB_T2F' 'IC_T2F' 'IA_TRIF' 'IB_TRIF' 'IC_TRIF'});
+valores_resultados_simulacao_meio_linha_sem_comp(1, :) = string({'n' 'tipoCurto' 'Raf' 'Rbf' 'Rcf' 'RaTrif' 'RbTrif' 'RcTrif' 'IA_T2F' 'IB_T2F' 'IC_T2F' 'IA_TRIF' 'IB_TRIF' 'IC_TRIF'});
+valores_resultados_simulacao_fim_linha_sem_comp(1, :) = string({'tipoCurto' 'Raf' 'Rbf' 'Rcf' 'RaTrif' 'RbTrif' 'RcTrif' 'IA_T2F' 'IB_T2F' 'IC_T2F' 'IA_TRIF' 'IB_TRIF' 'IC_TRIF'});
+valores_resultados_simulacao_meio_linha_com_comp(1, :) = string({'n' 'tipoCurto' 'Raf' 'Rbf' 'Rcf' 'RaTrif' 'RbTrif' 'RcTrif' 'IA_T2F' 'IB_T2F' 'IC_T2F' 'IA_TRIF' 'IB_TRIF' 'IC_TRIF'});
+valores_resultados_simulacao_fim_linha_com_comp(1, :) = string({'tipoCurto' 'Raf' 'Rbf' 'Rcf' 'RaTrif' 'RbTrif' 'RcTrif' 'IA_T2F' 'IB_T2F' 'IC_T2F' 'IA_TRIF' 'IB_TRIF' 'IC_TRIF'});
 
 % Parametros_testes = [0.001 .1 .15 .2 .25 .3 .35 .4 .45 .5 .55 .6 .65 .7 .75 .8 .85 .9 .95 .999];
 Parametros_testes = [0.001 .1 .2 .3 .4 .5 .6 .7 .8 .9 .999];
@@ -157,13 +157,13 @@ for b = [1:1:5]
     end
 
     sim('.\SimCurtoCircuitoSemCompensacao.slx')
-    Corrente_T2F_Ensaio = abs(CorrenteT2F)/sqrt(2);
+    Corrente_T2F_Ensaio = abs(CorrenteT2F);
     Corrente_T2F_Ensaio;
     run('.\CurtoCircuitoFim.m');
     valores_resultados_fim_linha_sem_compensacao(b+1, :) = [tipoCurto Corrente_T2F_Ensaio IA IB IC];
 
     sim('.\SimCurtoCircuitoComCompensacao.slx')
-    Corrente_T2F_Ensaio = abs(CorrenteT2F)/sqrt(2);
+    Corrente_T2F_Ensaio = abs(CorrenteT2F);
     Corrente_T2F_Ensaio;
     run('.\CurtoCircuitoFim.m');
     valores_resultados_fim_linha_com_compensacao(b+1, :) = [tipoCurto Corrente_T2F_Ensaio IA IB IC];
@@ -171,21 +171,17 @@ for b = [1:1:5]
     sim('.\SimCurtoCircuitoFimLinhaT2F.slx')
     sim('.\SimTrifasicoFimLinha.slx')
 
-    Corrente_T2F_Ensaio = abs(CorrenteT2F)/sqrt(2);
-    Corrente_Trifasica_Ensaio = abs(CorrenteTrifasica)/sqrt(2);
-    Tensao_T2F_Ensaio = abs(TensaoT2F)/sqrt(2);
-    Tensao_Trifasica_Ensaio = abs(TensaoTRIF)/sqrt(2);
-    valores_resultados_simulacao_fim_linha_sem_comp(b+1, :) = [tipoCurto Raf Rbf Rcf RaTrif RbTrif RcTrif Tensao_T2F_Ensaio Tensao_Trifasica_Ensaio Corrente_T2F_Ensaio Corrente_Trifasica_Ensaio];
+    Corrente_T2F_Ensaio = abs(CorrenteT2F);
+    Corrente_Trifasica_Ensaio = abs(CorrenteTrifasica);
+    valores_resultados_simulacao_fim_linha_sem_comp(b+1, :) = [tipoCurto Raf Rbf Rcf RaTrif RbTrif RcTrif Corrente_T2F_Ensaio Corrente_Trifasica_Ensaio];
 
     sim('.\SimCurtoCircuitoFimLinhaT2FComp.slx')
     sim('.\SimTrifasicoFimLinha.slx')
 
-    Corrente_T2F_Ensaio = abs(CorrenteT2F)/sqrt(2);
-    Corrente_Trifasica_Ensaio = abs(CorrenteTrifasica)/sqrt(2);
-    Tensao_T2F_Ensaio = abs(TensaoT2F)/sqrt(2);
-    Tensao_Trifasica_Ensaio = abs(TensaoTRIF)/sqrt(2);
+    Corrente_T2F_Ensaio = abs(CorrenteT2F);
+    Corrente_Trifasica_Ensaio = abs(CorrenteTrifasica);
 
-    valores_resultados_simulacao_fim_linha_com_comp(b+1, :) = [tipoCurto Raf Rbf Rcf RaTrif RbTrif RcTrif Tensao_T2F_Ensaio Tensao_Trifasica_Ensaio Corrente_T2F_Ensaio Corrente_Trifasica_Ensaio];
+    valores_resultados_simulacao_fim_linha_com_comp(b+1, :) = [tipoCurto Raf Rbf Rcf RaTrif RbTrif RcTrif Corrente_T2F_Ensaio Corrente_Trifasica_Ensaio];
 end
 
 fprintf('Terminado fim de Linha! \n');
@@ -240,49 +236,38 @@ for n = Parametros_testes
         end
 
         sim('.\SimCurtoCircuitoMeioLinhaSemCompensacao.slx')
-        Corrente_T2F_Ensaio = abs(CorrenteT2F)/sqrt(2);
+        Corrente_T2F_Ensaio = abs(CorrenteT2F);
         Corrente_T2F_Ensaio;
         run('.\CurtoCircuitoMeioLinha.m');
         valores_resultados_meio_linha_sem_compensacao(c+1, :) = [m1 tipoCurto Corrente_T2F_Ensaio IA IB IC];
 
         sim('.\SimCurtoCircuitoMeioLinhaComCompensacao.slx')
-        Corrente_T2F_Ensaio = abs(CorrenteT2F)/sqrt(2);
+        Corrente_T2F_Ensaio = abs(CorrenteT2F);
         Corrente_T2F_Ensaio;
         run('.\CurtoCircuitoMeioLinha.m');
         valores_resultados_meio_linha_com_compensacao(c+1, :) = [m1 tipoCurto Corrente_T2F_Ensaio IA IB IC];
 
         sim('.\SimCurtoCircuitoMeioLinhaT2F.slx')
         sim('.\SimTrifasicoMeioLinha.slx')
-        Corrente_T2F_Ensaio = abs(CorrenteT2F)/sqrt(2);
+        Corrente_T2F_Ensaio = abs(CorrenteT2F);
         Corrente_T2F_Ensaio;
 
-        Corrente_Trifasica_Ensaio = abs(CorrenteTrifasica)/sqrt(2);
+        Corrente_Trifasica_Ensaio = abs(CorrenteTrifasica);
         Corrente_Trifasica_Ensaio;
 
-        Tensao_T2F_Ensaio = abs(TensaoT2F)/sqrt(2);
-        Tensao_T2F_Ensaio;
-        
-        Tensao_Trifasica_Ensaio = abs(TensaoTRIF)/sqrt(2);
-        Tensao_Trifasica_Ensaio;
-
-        valores_resultados_simulacao_meio_linha_sem_comp(c+1, :) = [m1 tipoCurto Raf Rbf Rcf RaTrif RbTrif RcTrif Tensao_T2F_Ensaio Tensao_Trifasica_Ensaio Corrente_T2F_Ensaio Corrente_Trifasica_Ensaio];
+       valores_resultados_simulacao_meio_linha_sem_comp(c+1, :) = [m1 tipoCurto Raf Rbf Rcf RaTrif RbTrif RcTrif Corrente_T2F_Ensaio Corrente_Trifasica_Ensaio];
 
         sim('.\SimCurtoCircuitoMeioLinhaT2FComp.slx') 
         sim('.\SimTrifasicoMeioLinha.slx')
         
-        Corrente_T2F_Ensaio = abs(CorrenteT2F)/sqrt(2);
+        Corrente_T2F_Ensaio = abs(CorrenteT2F);
         Corrente_T2F_Ensaio;
 
-        Corrente_Trifasica_Ensaio = abs(CorrenteTrifasica)/sqrt(2);
+        Corrente_Trifasica_Ensaio = abs(CorrenteTrifasica);
         Corrente_Trifasica_Ensaio;
 
-        Tensao_T2F_Ensaio = abs(TensaoT2F)/sqrt(2);
-        Tensao_T2F_Ensaio;
 
-        Tensao_Trifasica_Ensaio = abs(TensaoTRIF)/sqrt(2);
-        Tensao_Trifasica_Ensaio;
-
-        valores_resultados_simulacao_meio_linha_com_comp(c+1, :) = [m1 tipoCurto Raf Rbf Rcf RaTrif RbTrif RcTrif Tensao_T2F_Ensaio Tensao_Trifasica_Ensaio Corrente_T2F_Ensaio Corrente_Trifasica_Ensaio];
+        valores_resultados_simulacao_meio_linha_com_comp(c+1, :) = [m1 tipoCurto Raf Rbf Rcf RaTrif RbTrif RcTrif Corrente_T2F_Ensaio Corrente_Trifasica_Ensaio];
         c = c + 1;
     end
 end

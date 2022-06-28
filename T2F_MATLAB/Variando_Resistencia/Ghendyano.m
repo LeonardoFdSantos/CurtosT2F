@@ -120,5 +120,5 @@ for n = Parametros_testes
     c = c + 1;
 end
 
-writematrix(ghendyano, 'Ghendyano4.csv');
+writematrix(ghendyano, 'Ghendyano6.csv');
 fprintf('TERMINADO!\n');

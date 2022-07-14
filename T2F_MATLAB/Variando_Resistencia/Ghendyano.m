@@ -61,7 +61,7 @@ Ceq=Cct-Ccc; %capacitancia de equalização F/km
 Ze = Zp-2*Zm; %OHM/km
 %IMPEDANCIAS S�RIE
 Zl = Zp-Zm; %OHM/km
-dd =[10:5:200];
+dd =[5:5:500];
 
 for compensada=[0 1 2]
 %fazer tudo em fun��o da distancia
@@ -105,7 +105,7 @@ ghendyano2(1, :) = string({'n' 'distancia'  'Raf' 'IA_T2F' 'IB_T2F' 'IC_T2F' 'IA
 
 c = 1;
 % Parametros_testes = [0.001 .1 .2 .3 .4 .5 .6 .7 .8 .9 .999];
-Parametros_testes = [10:10:2000];
+Parametros_testes = [10:5:2000];
 
 for m1 = dd
     for n = Parametros_testes
@@ -129,7 +129,7 @@ for m1 = dd
     end
 end
 
-writematrix(ghendyano, 'Ghendyano15.csv');
-writematrix(ghendyano2, 'CorrenteTrif15.csv');
+writematrix(ghendyano, 'Ghendyano17.csv');
+writematrix(ghendyano2, 'CorrenteTrif17.csv');
 
 fprintf('TERMINADO!\n');

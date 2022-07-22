@@ -61,7 +61,8 @@ Ceq=Cct-Ccc; %capacitancia de equalização F/km
 Ze = Zp-2*Zm; %OHM/km
 %IMPEDANCIAS S�RIE
 Zl = Zp-Zm; %OHM/km
-dd =[60];
+dd = [5:5:250];
+
 for compensada=[0 1 2]
 %fazer tudo em fun��o da distancia
     for z = 1:length(dd) % Dist�ncia em KM   
@@ -99,27 +100,39 @@ for compensada=[0 1 2]
     end
 end
 
-
-ghendyano(1, :) = string({'n' 'Raf' 'IA_T2F' 'IB_T2F' 'IC_T2F' 'IA_T2F' 'IB_T2F' 'IC_T2F' 'IA_TRIF' 'IB_TRIF' 'IC_TRIF'});
+ghendyano(1, :) = string({'n' 'distancia' 'Raf' 'IA_T2F' 'IB_T2F' 'IC_T2F' 'IA_TRIF' 'IB_TRIF' 'IC_TRIF'});
+ghendyano2(1, :) = string({'n' 'distancia'  'Raf' 'IA_T2F' 'IB_T2F' 'IC_T2F' 'IA_TRIF' 'IB_TRIF' 'IC_TRIF'});
 
 c = 1;
 % Parametros_testes = [0.001 .1 .2 .3 .4 .5 .6 .7 .8 .9 .999];
-Parametros_testes = [1:1:2000];
-
-for n = Parametros_testes
-    RaF = n;
-    sim('.\GhendyanoT2F.slx')
-    sim('.\GhendyanoTrifasico.slx')
-    Corrente_Sistema_T2F = abs(CorrenteSistemaT2F);
-    Corrente_Sistema_Trifasico = abs(CorrenteSistemaTrifasico);
-    Corrente_Sistema_T2F_Comp = abs(CorrenteT2FComp);
-%     Corrente_T2F_Ensaio = abs(CorrenteT2F);
-%     Corrente_Trifasica_Ensaio = abs(CorrenteTrifasica);
-%     Corrente_T2F_Ensaio = abs(CorrenteT2F)/sqrt(2);
-%     Corrente_Trifasica_Ensaio = abs(CorrenteTrifasica)/sqrt(2);
-    ghendyano(c+1, :) = [c RaF Corrente_Sistema_T2F Corrente_Sistema_T2F_Comp Corrente_Sistema_Trifasico];
-    c = c + 1;
+Parametros_testes = [10:5:1000];
+caixaTexto = waitbar(0, 'Começando');
+total = length(dd)*length(Parametros_testes);
+for m1 = dd
+    for n = Parametros_testes
+        RaF = n;
+        sim('.\GhendyanoT2F.slx')
+        sim('.\GhendyanoTrifasico.slx')
+        sim('.\GhendyanoT2Fcomp.slx')
+        CorrenteAntes_Trifasico = abs(CorrenteSemIsoladorTrifasico);
+%         CorrenteAntes_T2F = abs(CorrenteIsoladorT2F);
+        CorrenteAntes_T2F_Comp = abs(CorrenteIsoladorT2FComp);
+%         Corrente_Sistema_T2F = abs(CorrenteSistemaT2F);
+        Corrente_Sistema_Trifasico = abs(CorrenteSistemaTrifasico);
+        Corrente_Sistema_T2F_Comp = abs(CorrenteT2FComp);
+    %     Corrente_T2F_Ensaio = abs(CorrenteT2F);
+    %     Corrente_Trifasica_Ensaio = abs(CorrenteTrifasica);
+    %     Corrente_T2F_Ensaio = abs(CorrenteT2F)/sqrt(2);
+    %     Corrente_Trifasica_Ensaio = abs(CorrenteTrifasica)/sqrt(2);
+        ghendyano(c+1, :) = [c m1 RaF Corrente_Sistema_T2F_Comp Corrente_Sistema_Trifasico];
+        ghendyano2(c+1, :) = [c m1 RaF CorrenteAntes_T2F_Comp CorrenteAntes_Trifasico];        
+        c = c + 1;
+        valoresCaixa = (c/total)*100;
+        waitbar(valoresCaixa, caixaTexto,sprintf("Tá indo em %12.9f '%%%'",valoresCaixa*100));
+    end
 end
 
-writematrix(ghendyano, 'Ghendyano6.csv');
+writematrix(ghendyano, 'Ghendyano18.csv');
+writematrix(ghendyano2, 'CorrenteTrif18.csv');
+close(caixaTexto)
 fprintf('TERMINADO!\n');

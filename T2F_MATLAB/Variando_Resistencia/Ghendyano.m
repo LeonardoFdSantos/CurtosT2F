@@ -61,7 +61,7 @@ Ceq=Cct-Ccc; %capacitancia de equalização F/km
 Ze = Zp-2*Zm; %OHM/km
 %IMPEDANCIAS S�RIE
 Zl = Zp-Zm; %OHM/km
-dd =[5:5:500];
+dd = [10:5:250];
 
 for compensada=[0 1 2]
 %fazer tudo em fun��o da distancia
@@ -105,8 +105,9 @@ ghendyano2(1, :) = string({'n' 'distancia'  'Raf' 'IA_T2F' 'IB_T2F' 'IC_T2F' 'IA
 
 c = 1;
 % Parametros_testes = [0.001 .1 .2 .3 .4 .5 .6 .7 .8 .9 .999];
-Parametros_testes = [10:5:2000];
-
+Parametros_testes = [50:50:10000];
+caixaTexto = waitbar(0, 'Começando');
+totalTextos = length(dd)*length(Parametros_testes);
 for m1 = dd
     for n = Parametros_testes
         RaF = n;
@@ -126,10 +127,12 @@ for m1 = dd
         ghendyano(c+1, :) = [c m1 RaF Corrente_Sistema_T2F_Comp Corrente_Sistema_Trifasico];
         ghendyano2(c+1, :) = [c m1 RaF CorrenteAntes_T2F_Comp CorrenteAntes_Trifasico];        
         c = c + 1;
+        valoresCaixa = (c/totalTextos);
+        waitbar(valoresCaixa, caixaTexto,sprintf("Tá indo em %.3f %%",valoresCaixa*100));
     end
 end
 
-writematrix(ghendyano, 'Ghendyano17.csv');
-writematrix(ghendyano2, 'CorrenteTrif17.csv');
-
+writematrix(ghendyano, 'Ghendyano21.csv');
+writematrix(ghendyano2, 'CorrenteTrif21.csv');
+close(caixaTexto)
 fprintf('TERMINADO!\n');

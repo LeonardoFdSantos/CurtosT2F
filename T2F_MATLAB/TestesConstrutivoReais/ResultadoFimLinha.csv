@@ -1,0 +1,11 @@
+n,tipoCurto,I_A_Isolador,Tempo_A_Isolador,Tempo_Abertura_A_Isolador,I_B_Isolador,Tempo_B_Isolador,Tempo_Abertura_B_Isolador,I_C_Isolador,Tempo_C_Isolador,Tempo_Abertura_C_Isolador,I_A1_Isolador,Tempo_A1_Isolador,Tempo_Abertura_A1_Isolador,I_B1_Isolador,Tempo_B1_Isolador,Tempo_Abertura_B1_Isolador,I_A1_Consumidor,Tempo_A1_Consumidor,Tempo_Abertura_A1_Consumidor,I_B1_Consumidor,Tempo_B1_Consumidor,Tempo_Abertura_B1_Consumidor,I_A2_Consumidor,Tempo_A2_Consumidor,Tempo_Abertura_A2_Consumidor,I_B2_Consumidor,Tempo_B2_Consumidor,Tempo_Abertura_B2_Consumidor,IA_Sistema,IB_Sistema,IC_Sistema
+1,1,23.0883,2.14108,2.229,22.7485,Inf,Inf,23.3209,2.08638,2.174,23.355,Inf,Inf,22.7835,Inf,Inf,0,Inf,Inf,0,Inf,Inf,0,Inf,Inf,0,Inf,Inf,2.81621e-06,0.0119525,0.0119554
+2,2,10.1388,Inf,Inf,12.9227,Inf,Inf,23.0347,2.15398,2.241,19.1467,Inf,Inf,0,Inf,Inf,0,Inf,Inf,0,Inf,Inf,0,Inf,Inf,0,Inf,Inf,0.708458,1.42289,0.714433
+3,3,13.7641,Inf,Inf,23.0391,2.15292,2.24,9.3581,Inf,Inf,0,Inf,Inf,21.2362,Inf,Inf,0,Inf,Inf,0,Inf,Inf,0,Inf,Inf,0,Inf,Inf,0.38017,0.184115,0.196055
+4,4,23.0883,2.14108,2.229,9.40201,Inf,Inf,13.7608,Inf,Inf,21.2639,Inf,Inf,18.7401,Inf,Inf,0,Inf,Inf,0,Inf,Inf,0,Inf,Inf,0,Inf,Inf,1.26671,1.27269,2.5394
+5,5,0,Inf,Inf,0,Inf,Inf,0,Inf,Inf,0,Inf,Inf,0,Inf,Inf,0,Inf,Inf,0,Inf,Inf,0,Inf,Inf,0,Inf,Inf,0.94885,1.4197,2.3686
+6,6,10.1267,Inf,Inf,12.9102,Inf,Inf,23.0101,2.15995,2.247,19.1255,Inf,Inf,0,Inf,Inf,0,Inf,Inf,0,Inf,Inf,0,Inf,Inf,0,Inf,Inf,0.708465,1.42289,0.714426
+7,7,10.1216,Inf,Inf,12.9044,Inf,Inf,22.9991,2.16262,2.25,19.1162,Inf,Inf,0,Inf,Inf,0,Inf,Inf,0,Inf,Inf,0,Inf,Inf,0,Inf,Inf,0.708465,1.42289,0.714426
+8,8,10.1216,Inf,Inf,12.9044,Inf,Inf,22.9991,2.16262,2.25,19.1162,Inf,Inf,0,Inf,Inf,0,Inf,Inf,0,Inf,Inf,0,Inf,Inf,0,Inf,Inf,0.708465,1.42289,0.714426
+9,9,0,Inf,Inf,0,Inf,Inf,0,Inf,Inf,0,Inf,Inf,0,Inf,Inf,0,Inf,Inf,0,Inf,Inf,0,Inf,Inf,0,Inf,Inf,0.94885,1.4197,2.3686
+10,10,0,Inf,Inf,0,Inf,Inf,0,Inf,Inf,0,Inf,Inf,0,Inf,Inf,0,Inf,Inf,0,Inf,Inf,0,Inf,Inf,0,Inf,Inf,0.94885,1.4197,2.3686

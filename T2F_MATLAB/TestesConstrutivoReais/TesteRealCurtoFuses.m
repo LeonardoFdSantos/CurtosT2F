@@ -210,13 +210,13 @@ valores_resultados_simulacao_meio_linha_com_comp_2(1, :) = string({'n' 'm2' 'tip
 open('GhendyanoT2F.slx');
 Fusiveis = Simulink.Mask.get('GhendyanoT2F/FuseA');
 Fuse = Fusiveis.Parameters;
-Fuse(1).TypeOptions = ("3H");
+Fuse(1).TypeOptions = ("5H");
 Fusiveis1 = Simulink.Mask.get('GhendyanoT2F/FuseB');
 Fuse1 = Fusiveis1.Parameters;
-Fuse1(1).TypeOptions = ("3H");
+Fuse1(1).TypeOptions = ("5H");
 Fusiveis2 = Simulink.Mask.get('GhendyanoT2F/FuseC');
 Fuse2 = Fusiveis2.Parameters;
-Fuse2(1).TypeOptions = ("3H");
+Fuse2(1).TypeOptions = ("5H");
 Fusiveis3 = Simulink.Mask.get('GhendyanoT2F/FuseA1');
 Fuse3 = Fusiveis3.Parameters;
 Fuse3(1).TypeOptions = ("5H");
@@ -314,7 +314,7 @@ for b = [1:1:10]
     if b == 1
         Raf1 = 1e-5;
         Rbf1 = 1e-5;
-        Rcf1 = 1e-5;
+        Rcf1 = 40;
         Raf2 = inf;
         Rbf2 = inf;
         Rcf2 = inf;
@@ -322,7 +322,7 @@ for b = [1:1:10]
     elseif b == 2
         Raf1 = 1e-5;
         Rbf1 = inf;
-        Rcf1 = 1e-5;
+        Rcf1 = 40;
         Raf2 = inf;
         Rbf2 = inf;
         Rcf2 = inf;
@@ -330,7 +330,7 @@ for b = [1:1:10]
     elseif b == 3
         Raf1 = inf;
         Rbf1 = 1e-5;
-        Rcf1 = 1e-5;
+        Rcf1 = 40;
         Raf2 = inf;
         Rbf2 = inf;
         Rcf2 = inf;
@@ -354,7 +354,7 @@ for b = [1:1:10]
     elseif b == 6
         Raf2 = 1e-5;
         Rbf2 = 1e-5;
-        Rcf2 = 1e-5;
+        Rcf2 = 40;
         Raf1 = inf;
         Rbf1 = inf;
         Rcf1 = inf;
@@ -362,7 +362,7 @@ for b = [1:1:10]
     elseif b == 7
         Raf2 = 1e-5;
         Rbf2 = inf;
-        Rcf2 = 1e-5;
+        Rcf2 = 40;
         Raf1 = inf;
         Rbf1 = inf;
         Rcf1 = inf;
@@ -370,7 +370,7 @@ for b = [1:1:10]
     elseif b == 8
         Raf2 = inf;
         Rbf2 = 1e-5;
-        Rcf2 = 1e-5;
+        Rcf2 = 40;
         Raf1 = inf;
         Rbf1 = inf;
         Rcf1 = inf;
@@ -407,7 +407,7 @@ for m1 = Parametros_testes
         if b == 1
             Raf1 = 1e-5;
             Rbf1 = 1e-5;
-            Rcf1 = 1e-5;
+            Rcf1 = 40;
             Raf2 = inf;
             Rbf2 = inf;
             Rcf2 = inf;
@@ -415,7 +415,7 @@ for m1 = Parametros_testes
         elseif b == 2
             Raf1 = 1e-5;
             Rbf1 = inf;
-            Rcf1 = 1e-5;
+            Rcf1 = 40;
             Raf2 = inf;
             Rbf2 = inf;
             Rcf2 = inf;
@@ -423,7 +423,7 @@ for m1 = Parametros_testes
         elseif b == 3
             Raf1 = inf;
             Rbf1 = 1e-5;
-            Rcf1 = 1e-5;
+            Rcf1 = 40;
             Raf2 = inf;
             Rbf2 = inf;
             Rcf2 = inf;
@@ -447,7 +447,7 @@ for m1 = Parametros_testes
         elseif b == 6
             Raf2 = 1e-5;
             Rbf2 = 1e-5;
-            Rcf2 = 1e-5;
+            Rcf2 = 40;
             Raf1 = inf;
             Rbf1 = inf;
             Rcf1 = inf;
@@ -455,7 +455,7 @@ for m1 = Parametros_testes
         elseif b == 7
             Raf2 = 1e-5;
             Rbf2 = inf;
-            Rcf2 = 1e-5;
+            Rcf2 = 40;
             Raf1 = inf;
             Rbf1 = inf;
             Rcf1 = inf;
@@ -463,7 +463,7 @@ for m1 = Parametros_testes
         elseif b == 8
             Raf2 = inf;
             Rbf2 = 1e-5;
-            Rcf2 = 1e-5;
+            Rcf2 = 40;
             Raf1 = inf;
             Rbf1 = inf;
             Rcf1 = inf;
@@ -501,7 +501,7 @@ for m2 = Parametros_testes
         if b == 1
             Raf1 = 1e-5;
             Rbf1 = 1e-5;
-            Rcf1 = 1e-5;
+            Rcf1 = 40;
             Raf2 = inf;
             Rbf2 = inf;
             Rcf2 = inf;
@@ -509,7 +509,7 @@ for m2 = Parametros_testes
         elseif b == 2
             Raf1 = 1e-5;
             Rbf1 = inf;
-            Rcf1 = 1e-5;
+            Rcf1 = 40;
             Raf2 = inf;
             Rbf2 = inf;
             Rcf2 = inf;
@@ -517,7 +517,7 @@ for m2 = Parametros_testes
         elseif b == 3
             Raf1 = inf;
             Rbf1 = 1e-5;
-            Rcf1 = 1e-5;
+            Rcf1 = 40;
             Raf2 = inf;
             Rbf2 = inf;
             Rcf2 = inf;
@@ -541,7 +541,7 @@ for m2 = Parametros_testes
         elseif b == 6
             Raf2 = 1e-5;
             Rbf2 = 1e-5;
-            Rcf2 = 1e-5;
+            Rcf2 = 40;
             Raf1 = inf;
             Rbf1 = inf;
             Rcf1 = inf;
@@ -549,7 +549,7 @@ for m2 = Parametros_testes
         elseif b == 7
             Raf2 = 1e-5;
             Rbf2 = inf;
-            Rcf2 = 1e-5;
+            Rcf2 = 40;
             Raf1 = inf;
             Rbf1 = inf;
             Rcf1 = inf;
@@ -557,7 +557,7 @@ for m2 = Parametros_testes
         elseif b == 8
             Raf2 = inf;
             Rbf2 = 1e-5;
-            Rcf2 = 1e-5;
+            Rcf2 = 40;
             Raf1 = inf;
             Rbf1 = inf;
             Rcf1 = inf;

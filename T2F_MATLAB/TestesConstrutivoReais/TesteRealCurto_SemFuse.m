@@ -221,7 +221,7 @@ for b = [1:1:10]
     if b == 1
         Raf1 = 1e-5;
         Rbf1 = 1e-5;
-        Rcf1 = 1e-5;
+        Rcf1 = 40;
         Raf2 = inf;
         Rbf2 = inf;
         Rcf2 = inf;
@@ -229,7 +229,7 @@ for b = [1:1:10]
     elseif b == 2
         Raf1 = 1e-5;
         Rbf1 = inf;
-        Rcf1 = 1e-5;
+        Rcf1 = 40;
         Raf2 = inf;
         Rbf2 = inf;
         Rcf2 = inf;
@@ -237,7 +237,7 @@ for b = [1:1:10]
     elseif b == 3
         Raf1 = inf;
         Rbf1 = 1e-5;
-        Rcf1 = 1e-5;
+        Rcf1 = 40;
         Raf2 = inf;
         Rbf2 = inf;
         Rcf2 = inf;
@@ -261,7 +261,7 @@ for b = [1:1:10]
     elseif b == 6
         Raf2 = 1e-5;
         Rbf2 = 1e-5;
-        Rcf2 = 1e-5;
+        Rcf2 = 40;
         Raf1 = inf;
         Rbf1 = inf;
         Rcf1 = inf;
@@ -269,7 +269,7 @@ for b = [1:1:10]
     elseif b == 7
         Raf2 = 1e-5;
         Rbf2 = inf;
-        Rcf2 = 1e-5;
+        Rcf2 = 40;
         Raf1 = inf;
         Rbf1 = inf;
         Rcf1 = inf;
@@ -277,7 +277,7 @@ for b = [1:1:10]
     elseif b == 8
         Raf2 = inf;
         Rbf2 = 1e-5;
-        Rcf2 = 1e-5;
+        Rcf2 = 40;
         Raf1 = inf;
         Rbf1 = inf;
         Rcf1 = inf;
@@ -312,7 +312,7 @@ for m1 = Parametros_testes
         if b == 1
             Raf1 = 1e-5;
             Rbf1 = 1e-5;
-            Rcf1 = 1e-5;
+            Rcf1 = 40;
             Raf2 = inf;
             Rbf2 = inf;
             Rcf2 = inf;
@@ -320,7 +320,7 @@ for m1 = Parametros_testes
         elseif b == 2
             Raf1 = 1e-5;
             Rbf1 = inf;
-            Rcf1 = 1e-5;
+            Rcf1 = 40;
             Raf2 = inf;
             Rbf2 = inf;
             Rcf2 = inf;
@@ -328,7 +328,7 @@ for m1 = Parametros_testes
         elseif b == 3
             Raf1 = inf;
             Rbf1 = 1e-5;
-            Rcf1 = 1e-5;
+            Rcf1 = 40;
             Raf2 = inf;
             Rbf2 = inf;
             Rcf2 = inf;
@@ -352,7 +352,7 @@ for m1 = Parametros_testes
         elseif b == 6
             Raf2 = 1e-5;
             Rbf2 = 1e-5;
-            Rcf2 = 1e-5;
+            Rcf2 = 40;
             Raf1 = inf;
             Rbf1 = inf;
             Rcf1 = inf;
@@ -360,7 +360,7 @@ for m1 = Parametros_testes
         elseif b == 7
             Raf2 = 1e-5;
             Rbf2 = inf;
-            Rcf2 = 1e-5;
+            Rcf2 = 40;
             Raf1 = inf;
             Rbf1 = inf;
             Rcf1 = inf;
@@ -368,7 +368,7 @@ for m1 = Parametros_testes
         elseif b == 8
             Raf2 = inf;
             Rbf2 = 1e-5;
-            Rcf2 = 1e-5;
+            Rcf2 = 40;
             Raf1 = inf;
             Rbf1 = inf;
             Rcf1 = inf;
@@ -404,7 +404,7 @@ for m2 = Parametros_testes
         if b == 1
             Raf1 = 1e-5;
             Rbf1 = 1e-5;
-            Rcf1 = 1e-5;
+            Rcf1 = 40;
             Raf2 = inf;
             Rbf2 = inf;
             Rcf2 = inf;
@@ -412,7 +412,7 @@ for m2 = Parametros_testes
         elseif b == 2
             Raf1 = 1e-5;
             Rbf1 = inf;
-            Rcf1 = 1e-5;
+            Rcf1 = 40;
             Raf2 = inf;
             Rbf2 = inf;
             Rcf2 = inf;
@@ -420,7 +420,7 @@ for m2 = Parametros_testes
         elseif b == 3
             Raf1 = inf;
             Rbf1 = 1e-5;
-            Rcf1 = 1e-5;
+            Rcf1 = 40;
             Raf2 = inf;
             Rbf2 = inf;
             Rcf2 = inf;
@@ -444,7 +444,7 @@ for m2 = Parametros_testes
         elseif b == 6
             Raf2 = 1e-5;
             Rbf2 = 1e-5;
-            Rcf2 = 1e-5;
+            Rcf2 = 40;
             Raf1 = inf;
             Rbf1 = inf;
             Rcf1 = inf;
@@ -452,7 +452,7 @@ for m2 = Parametros_testes
         elseif b == 7
             Raf2 = 1e-5;
             Rbf2 = inf;
-            Rcf2 = 1e-5;
+            Rcf2 = 40;
             Raf1 = inf;
             Rbf1 = inf;
             Rcf1 = inf;
@@ -460,7 +460,7 @@ for m2 = Parametros_testes
         elseif b == 8
             Raf2 = inf;
             Rbf2 = 1e-5;
-            Rcf2 = 1e-5;
+            Rcf2 = 40;
             Raf1 = inf;
             Rbf1 = inf;
             Rcf1 = inf;

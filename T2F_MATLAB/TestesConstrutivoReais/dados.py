@@ -23,9 +23,9 @@ with pd.ExcelWriter('Dados.xlsx') as writer:
     dadosMeioLinha2.to_excel(writer, sheet_name='Meio Linha 2', index=False)
 
 with pd.ExcelWriter('Dados_SemFuse.xlsx') as writer:  
-    dadosFimLinha_SemFuse.to_excel(writer, sheet_name='Fim Linha', index=False)
-    dadosMeioLinha1_SemFuse.to_excel(writer, sheet_name='Meio Linha 1', index=False)
-    dadosMeioLinha2_SemFuse.to_excel(writer, sheet_name='Meio Linha 2', index=False)
+    dadosFimLinha_SemFuse.to_excel(writer, sheet_name='Fim Linha Sem Fuse', index=False)
+    dadosMeioLinha1_SemFuse.to_excel(writer, sheet_name='Meio Linha 1 Sem Fuse', index=False)
+    dadosMeioLinha2_SemFuse.to_excel(writer, sheet_name='Meio Linha 2 Sem Fuse', index=False)
 '''
 dadosGhendyanoT2F = pd.read_csv('TesteEloGhendy_16.csv')
 dadosGhendyanoT2FConsumidor = pd.read_csv('TesteEloGhendyConsumidor_16.csv')

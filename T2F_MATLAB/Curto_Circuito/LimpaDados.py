@@ -1,13 +1,13 @@
 import pandas as pd
 import numpy as np
 
-valores_resultados_meio_linha_sem_compensacao = pd.read_csv('valores_resultados_meio_linha_sem_compensacao.csv');
-valores_resultados_fim_linha_sem_compensacao = pd.read_csv('valores_resultados_fim_linha_sem_compensacao.csv');
 valores_resultados_fim_linha_com_compensacao = pd.read_csv('valores_resultados_fim_linha_com_compensacao.csv');
 valores_resultados_meio_linha_com_compensacao = pd.read_csv('valores_resultados_meio_linha_com_compensacao.csv');
+valores_resultados_meio_linha_sem_compensacao = pd.read_csv('valores_resultados_meio_linha_sem_compensacao.csv');
+valores_resultados_fim_linha_sem_compensacao = pd.read_csv('valores_resultados_fim_linha_sem_compensacao.csv');
 
-valores_resultados_simulacao_meio_linha = pd.read_csv('valores_resultados_simulacao_meio_linha_sem_comp.csv');
 valores_resultados_simulacao_fim_linha = pd.read_csv('valores_resultados_simulacao_fim_linha_sem_comp.csv');
+valores_resultados_simulacao_meio_linha = pd.read_csv('valores_resultados_simulacao_meio_linha_sem_comp.csv');
 valores_resultados_simulacao_meio_linha_com_comp = pd.read_csv('valores_resultados_simulacao_meio_linha_com_comp.csv');
 valores_resultados_simulacao_fim_linha_com_comp = pd.read_csv('valores_resultados_simulacao_fim_linha_com_comp.csv');
 

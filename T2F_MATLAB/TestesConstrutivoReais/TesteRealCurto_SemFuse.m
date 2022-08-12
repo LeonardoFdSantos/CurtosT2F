@@ -6,7 +6,7 @@ close all;
 
 v=220*sqrt(3);
 fp=[1]; %####ALTERAR####
-S=[75e3];        %####ALTERAR####
+S=[45e3];        %####ALTERAR####
 
 %% Distancia 0.9km
 
@@ -14,8 +14,8 @@ S=[75e3];        %####ALTERAR####
 f=60; %frequencia da rede       ####ALTERAR####
 DI=8.01e-3;   %Di�metro do condutor [m]
 RI=1.102;      %Resist�ncia el�trica m�xima CA 60Hz 75�C [Ohm/km]
-rmgi=0.00308;  %Raio m�dio geom�trico [m]
-Dotima=1.60;
+rmgi=0.00244;  %Raio m�dio geom�trico [m]
+Dotima=0.744;
 ri=RI*1.609344; % transforma em ohm/milha 
 rd=((pi)^2*f*10^(-4))/0.621371; %resistencia de terra ohm/milha 
 GMRi=rmgi*3.28084; % transforma para P�S
@@ -216,12 +216,13 @@ rtc2 = 8;
 b = 0;
 c = 1;
 e = 1;
+
 Parametros_testes = [0.001 .1 .2 .3 .4 .5 .6 .7 .8 .9 .999];
 for b = [1:1:10]
     if b == 1
         Raf1 = 1e-5;
         Rbf1 = 1e-5;
-        Rcf1 = 40;
+        Rcf1 = 1e-5;
         Raf2 = inf;
         Rbf2 = inf;
         Rcf2 = inf;
@@ -229,7 +230,7 @@ for b = [1:1:10]
     elseif b == 2
         Raf1 = 1e-5;
         Rbf1 = inf;
-        Rcf1 = 40;
+        Rcf1 = 1e-5;
         Raf2 = inf;
         Rbf2 = inf;
         Rcf2 = inf;
@@ -237,7 +238,7 @@ for b = [1:1:10]
     elseif b == 3
         Raf1 = inf;
         Rbf1 = 1e-5;
-        Rcf1 = 40;
+        Rcf1 = 1e-5;
         Raf2 = inf;
         Rbf2 = inf;
         Rcf2 = inf;
@@ -261,7 +262,7 @@ for b = [1:1:10]
     elseif b == 6
         Raf2 = 1e-5;
         Rbf2 = 1e-5;
-        Rcf2 = 40;
+        Rcf2 = 1e-5;
         Raf1 = inf;
         Rbf1 = inf;
         Rcf1 = inf;
@@ -269,7 +270,7 @@ for b = [1:1:10]
     elseif b == 7
         Raf2 = 1e-5;
         Rbf2 = inf;
-        Rcf2 = 40;
+        Rcf2 = 1e-5;
         Raf1 = inf;
         Rbf1 = inf;
         Rcf1 = inf;
@@ -277,7 +278,7 @@ for b = [1:1:10]
     elseif b == 8
         Raf2 = inf;
         Rbf2 = 1e-5;
-        Rcf2 = 40;
+        Rcf2 = 1e-5;
         Raf1 = inf;
         Rbf1 = inf;
         Rcf1 = inf;
@@ -312,7 +313,7 @@ for m1 = Parametros_testes
         if b == 1
             Raf1 = 1e-5;
             Rbf1 = 1e-5;
-            Rcf1 = 40;
+            Rcf1 = 1e-5;
             Raf2 = inf;
             Rbf2 = inf;
             Rcf2 = inf;
@@ -320,7 +321,7 @@ for m1 = Parametros_testes
         elseif b == 2
             Raf1 = 1e-5;
             Rbf1 = inf;
-            Rcf1 = 40;
+            Rcf1 = 1e-5;
             Raf2 = inf;
             Rbf2 = inf;
             Rcf2 = inf;
@@ -328,7 +329,7 @@ for m1 = Parametros_testes
         elseif b == 3
             Raf1 = inf;
             Rbf1 = 1e-5;
-            Rcf1 = 40;
+            Rcf1 = 1e-5;
             Raf2 = inf;
             Rbf2 = inf;
             Rcf2 = inf;
@@ -352,7 +353,7 @@ for m1 = Parametros_testes
         elseif b == 6
             Raf2 = 1e-5;
             Rbf2 = 1e-5;
-            Rcf2 = 40;
+            Rcf2 = 1e-5;
             Raf1 = inf;
             Rbf1 = inf;
             Rcf1 = inf;
@@ -368,7 +369,7 @@ for m1 = Parametros_testes
         elseif b == 8
             Raf2 = inf;
             Rbf2 = 1e-5;
-            Rcf2 = 40;
+            Rcf2 = 1e-5;
             Raf1 = inf;
             Rbf1 = inf;
             Rcf1 = inf;

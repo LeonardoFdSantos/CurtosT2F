@@ -98,13 +98,9 @@ for compensada=[0 1 2]
     end
 end
 
-valores_resultados_fim_linha_sem_compensacao(1, :) = string({'tipoCurto' 'IA_Sim' 'IB_Sim' 'IC_Sim' 'IA_Calc' 'IB_Calc' 'IC_Calc'});
-valores_resultados_meio_linha_sem_compensacao(1, :) = string({'n' 'tipoCurto' 'IA_Sim' 'IB_Sim' 'IC_Sim' 'IA_Calc' 'IB_Calc' 'IC_Calc'});
 valores_resultados_fim_linha_com_compensacao(1, :) = string({'tipoCurto' 'IA_Sim' 'IB_Sim' 'IC_Sim' 'IA_Calc' 'IB_Calc' 'IC_Calc'});
 valores_resultados_meio_linha_com_compensacao(1, :) = string({'n' 'tipoCurto' 'IA_Sim' 'IB_Sim' 'IC_Sim' 'IA_Calc' 'IB_Calc' 'IC_Calc'});
 
-valores_resultados_simulacao_meio_linha_sem_comp(1, :) = string({'n' 'tipoCurto' 'Raf' 'Rbf' 'Rcf' 'RaTrif' 'RbTrif' 'RcTrif' 'IA_T2F' 'IB_T2F' 'IC_T2F' 'IA_TRIF' 'IB_TRIF' 'IC_TRIF'});
-valores_resultados_simulacao_fim_linha_sem_comp(1, :) = string({'tipoCurto' 'Raf' 'Rbf' 'Rcf' 'RaTrif' 'RbTrif' 'RcTrif' 'IA_T2F' 'IB_T2F' 'IC_T2F' 'IA_TRIF' 'IB_TRIF' 'IC_TRIF'});
 valores_resultados_simulacao_meio_linha_com_comp(1, :) = string({'n' 'tipoCurto' 'Raf' 'Rbf' 'Rcf' 'RaTrif' 'RbTrif' 'RcTrif' 'IA_T2F' 'IB_T2F' 'IC_T2F' 'IA_TRIF' 'IB_TRIF' 'IC_TRIF'});
 valores_resultados_simulacao_fim_linha_com_comp(1, :) = string({'tipoCurto' 'Raf' 'Rbf' 'Rcf' 'RaTrif' 'RbTrif' 'RcTrif' 'IA_T2F' 'IB_T2F' 'IC_T2F' 'IA_TRIF' 'IB_TRIF' 'IC_TRIF'});
 
@@ -117,33 +113,33 @@ for b = [1:1:5]
     if b == 1
         Raf = 1e-5;
         Rbf = 1e-5;
-        Rcf = 40;
-        RaTrif = 13.33;
-        RbTrif = 13.33;
-        RcTrif = 13.33;
+        Rcf = 1e-5;
+        RaTrif = 1e-5;
+        RbTrif = 1e-5;
+        RcTrif = 1e-5;
         tipoCurto = 1;
     elseif b == 2
         Raf = 1e-5;
         Rbf = 1e6;
-        Rcf = 40;
-        RaTrif = 20;
+        Rcf = 1e-5;
+        RaTrif = 1e-5;
         RbTrif = 1e6;
-        RcTrif = 20;
+        RcTrif = 1e-5;
         tipoCurto = 2;
     elseif b == 3
         RaTrif = 1e6;
-        RbTrif = 20;
-        RcTrif = 20;
+        RbTrif = 1e-5;
+        RcTrif = 1e-5;
         Raf = 1e6;
         Rbf = 1e-5;
-        Rcf = 40;
+        Rcf = 1e-5;
         tipoCurto = 3;
     elseif b == 4
-        RaTrif = 20; 
-        RbTrif = 20;
+        RaTrif = 1e-5; 
+        RbTrif = 1e-5;
         RcTrif = 1e6;
-        Raf = 20;
-        Rbf = 20;
+        Raf = 1e-5;
+        Rbf = 1e-5;
         Rcf = 1e6;
         tipoCurto = 4;
     elseif b == 5
@@ -156,25 +152,14 @@ for b = [1:1:5]
         tipoCurto = 5;
     end
 
-    sim('.\SimCurtoCircuitoSemCompensacao.slx')
-    Corrente_T2F_Ensaio = abs(CorrenteT2F)/sqrt(2);
-    run('.\CurtoCircuitoFim.m');
-    valores_resultados_fim_linha_sem_compensacao(b+1, :) = [tipoCurto Corrente_T2F_Ensaio IA IB IC];
-
     sim('.\SimCurtoCircuitoComCompensacao.slx')
     Corrente_T2F_Ensaio = abs(CorrenteT2F)/sqrt(2);
     run('.\CurtoCircuitoFim.m');
     valores_resultados_fim_linha_com_compensacao(b+1, :) = [tipoCurto Corrente_T2F_Ensaio IA IB IC];
 
-    sim('.\SimCurtoCircuitoFimLinhaT2F.slx')
-    sim('.\SimTrifasicoFimLinha.slx')
-    Corrente_T2F_Ensaio = abs(CorrenteT2F)/sqrt(2);
-    Corrente_Trifasica_Ensaio = abs(CorrenteTrifasica)/sqrt(2);
-    valores_resultados_simulacao_fim_linha_sem_comp(b+1, :) = [tipoCurto Raf Rbf Rcf RaTrif RbTrif RcTrif Corrente_T2F_Ensaio Corrente_Trifasica_Ensaio];
-
     sim('.\SimCurtoCircuitoFimLinhaT2FComp.slx')
     sim('.\SimTrifasicoFimLinha.slx')
-    Corrente_T2F_Ensaio = abs(CorrenteT2F)/sqrt(2);
+    Corrente_T2F_Ensaio = abs(CorrenteT2F);
     Corrente_Trifasica_Ensaio = abs(CorrenteTrifasica)/sqrt(2);
     valores_resultados_simulacao_fim_linha_com_comp(b+1, :) = [tipoCurto Raf Rbf Rcf RaTrif RbTrif RcTrif Corrente_T2F_Ensaio Corrente_Trifasica_Ensaio];
 end
@@ -186,38 +171,37 @@ e = 1;
 
 for n = Parametros_testes
     m1 = n;
-    m2 = 1 - m1;
     for b = [1:1:5]
         if b == 1
             Raf = 1e-5;
             Rbf = 1e-5;
-            Rcf = 40;
-            RaTrif = (13.33);
-            RbTrif = (13.33);
-            RcTrif = (13.33)+(NRE)+10;
+            Rcf = 1e-5;
+            RaTrif = (1e-5);
+            RbTrif = (1e-5);
+            RcTrif = (1e-5);
             tipoCurto = 1;
         elseif b == 2
             Raf = 1e-5;
             Rbf = 1e6;
-            Rcf = 40;
-            RaTrif = (20);
+            Rcf = 1e-5;
+            RaTrif = (1e-5);
             RbTrif = 1e6;
-            RcTrif = (20)+(NRE)+10;
+            RcTrif = (1e-5);
             tipoCurto = 2;
         elseif b == 3
             RaTrif = 1e6;
-            RbTrif = (20);
-            RcTrif = (20)+(NRE)+10;
+            RbTrif = (1e-5);
+            RcTrif = (1e-5);
             Raf = 1e6;
             Rbf = 1e-5;
-            Rcf = 40;
+            Rcf = 1e-5;
             tipoCurto = 3;
         elseif b == 4
-            RaTrif = 20; 
-            RbTrif = 20;
+            RaTrif = 1e-5; 
+            RbTrif = 1e-5;
             RcTrif = 1e6;
-            Raf = 20;
-            Rbf = 20;
+            Raf = 1e-5;
+            Rbf = 1e-5;
             Rcf = 1e6;
             tipoCurto = 4;
         elseif b == 5
@@ -230,26 +214,15 @@ for n = Parametros_testes
             tipoCurto = 5;
         end
 
-        sim('.\SimCurtoCircuitoMeioLinhaSemCompensacao.slx')
-        Corrente_T2F_Ensaio = abs(CorrenteT2F)/sqrt(2);
-        run('.\CurtoCircuitoMeioLinha.m');
-        valores_resultados_meio_linha_sem_compensacao(c+1, :) = [m1 tipoCurto Corrente_T2F_Ensaio IA IB IC];
-
         sim('.\SimCurtoCircuitoMeioLinhaComCompensacao.slx')
         Corrente_T2F_Ensaio = abs(CorrenteT2F)/sqrt(2);
         run('.\CurtoCircuitoMeioLinha.m');
         valores_resultados_meio_linha_com_compensacao(c+1, :) = [m1 tipoCurto Corrente_T2F_Ensaio IA IB IC];
 
-        sim('.\SimCurtoCircuitoMeioLinhaT2F.slx')
-        sim('.\SimTrifasicoMeioLinha.slx')
-        Corrente_T2F_Ensaio = abs(CorrenteT2F)/sqrt(2);
-        Corrente_Trifasica_Ensaio = abs(CorrenteTrifasica)/sqrt(2);
-       valores_resultados_simulacao_meio_linha_sem_comp(c+1, :) = [m1 tipoCurto Raf Rbf Rcf RaTrif RbTrif RcTrif Corrente_T2F_Ensaio Corrente_Trifasica_Ensaio];
-
         sim('.\SimCurtoCircuitoMeioLinhaT2FComp.slx') 
         sim('.\SimTrifasicoMeioLinha.slx')
         Corrente_T2F_Ensaio = abs(CorrenteT2F)/sqrt(2);
-        Corrente_Trifasica_Ensaio = abs(CorrenteTrifasica)/sqrt(2);
+        Corrente_Trifasica_Ensaio = abs(CorrenteTrifasica);
         valores_resultados_simulacao_meio_linha_com_comp(c+1, :) = [m1 tipoCurto Raf Rbf Rcf RaTrif RbTrif RcTrif Corrente_T2F_Ensaio Corrente_Trifasica_Ensaio];
         c = c + 1;
     end
@@ -257,16 +230,11 @@ end
 
 fprintf('Terminado meio de Linha! \n');
 
-writematrix(valores_resultados_meio_linha_sem_compensacao, 'valores_resultados_meio_linha_sem_compensacao.csv');
-writematrix(valores_resultados_fim_linha_sem_compensacao, 'valores_resultados_fim_linha_sem_compensacao.csv');
-writematrix(valores_resultados_fim_linha_com_compensacao, 'valores_resultados_fim_linha_com_compensacao.csv');
-writematrix(valores_resultados_meio_linha_com_compensacao, 'valores_resultados_meio_linha_com_compensacao.csv');
-
-writematrix(valores_resultados_simulacao_meio_linha_sem_comp, 'valores_resultados_simulacao_meio_linha_sem_comp.csv');
-writematrix(valores_resultados_simulacao_fim_linha_sem_comp, 'valores_resultados_simulacao_fim_linha_sem_comp.csv');
-writematrix(valores_resultados_simulacao_meio_linha_com_comp, 'valores_resultados_simulacao_meio_linha_com_comp.csv');
-writematrix(valores_resultados_simulacao_fim_linha_com_comp, 'valores_resultados_simulacao_fim_linha_com_comp.csv');
+writematrix(valores_resultados_fim_linha_com_compensacao, 'valores_resultados_fim_linha_com_compensacao_Artigo.csv');
+writematrix(valores_resultados_meio_linha_com_compensacao, 'valores_resultados_meio_linha_com_compensacao_Artigo.csv');
+writematrix(valores_resultados_simulacao_meio_linha_com_comp, 'valores_resultados_simulacao_meio_linha_com_comp_Artigo.csv');
+writematrix(valores_resultados_simulacao_fim_linha_com_comp, 'valores_resultados_simulacao_fim_linha_com_comp_Artigo.csv');
 
 fprintf('terminado Trifásico T2F! \n');
-pyrunfile("LimpaDados.py");
+pyrunfile("LimpaDadosSem.py");
 fprintf('\nDados limpos e exportados. \n');
